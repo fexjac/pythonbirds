@@ -18,3 +18,7 @@ if __name__ == '__main__':
     print(jaison.idade)
     for filho in jaison.filhos:
         print(filho.nome)
+    jaison.sobrenome = 'Costa'
+    del jaison.filhos
+    print(jaison.__dict__)
+    print(nico.__dict__)
