@@ -16,10 +16,17 @@ class Pessoa:
     def nome_e_atributos_da_classe(cls):
         return f'{cls} - olhos {cls.olhos}'
 
+class Homem(Pessoa):
+    pass
+
+class Mutante(Pessoa):
+    olhos = 3
+    pass
+
 if __name__ == '__main__':
-    nico = Pessoa(nome='Nico')
-    sophia = Pessoa(nome='Sophia')
-    jaison = Pessoa(nico, sophia, nome='Jaison')
+    nico = Mutante(nome='Nico')
+    sophia = Homem(nome='Sophia')
+    jaison = Homem(nico, sophia, nome='Jaison')
     print(Pessoa.cumprimentar(jaison))
     print(id(jaison))
     print(jaison.cumprimentar())
@@ -37,7 +44,7 @@ if __name__ == '__main__':
     print(sophia.olhos)
     print(jaison.olhos)
     print(id(Pessoa.olhos), id(nico.olhos), id(sophia.olhos), id(jaison.olhos))
-    Pessoa.olhos = 3
+    Pessoa.olhos = 2
     del jaison.olhos
     print(Pessoa.olhos)
     print(nico.olhos)
@@ -46,3 +53,9 @@ if __name__ == '__main__':
     print(id(Pessoa.olhos), id(nico.olhos), id(sophia.olhos), id(jaison.olhos))
     print(Pessoa.metodo_estatico(), jaison.metodo_estatico())
     print(Pessoa.nome_e_atributos_da_classe(), jaison.nome_e_atributos_da_classe())
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa, Pessoa))
+    print(isinstance(pessoa, Homem))
+    print(isinstance(jaison, Pessoa))
+    print(isinstance(jaison, Homem))
+    print(nico.olhos)
